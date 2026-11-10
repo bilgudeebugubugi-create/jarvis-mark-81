@@ -1,0 +1,79 @@
+# J.A.R.V.I.S. — MARK LV
+
+JARVIS is a Windows desktop voice assistant powered by Google's Gemini Live API.
+It can listen and respond in real time, use voice-controlled tools, and provide
+a graphical assistant interface. An internet connection and a Gemini API key
+are required for AI conversations; JARVIS is not an offline language model.
+
+## What JARVIS can do
+
+- Have live voice conversations, with microphone and speaker selection, mute,
+  push-to-talk, and optional wake-word mode.
+- Use tools for web search, browser control, app and system actions, reminders,
+  file and document tasks, and media playback.
+- Use built-in actions and optional plugins that can be enabled in the app.
+- Keep personal long-term memory locally on the PC.
+- Offer an optional phone-friendly dashboard on the local network.
+- Open the local Content Studio page in your browser. Its Video Editor tile
+  links to the online editor at 123apps.
+
+Some tools need compatible hardware or software. Browser control typically
+needs Chrome or Edge installed on the PC. Camera features need a camera.
+
+## Requirements
+
+- Windows 10 or 11, 64-bit.
+- Internet access and a Gemini API key.
+- A microphone and speakers/headphones for voice conversations.
+- No separate Python installation or dedicated GPU is required.
+
+## Install on Windows
+
+1. Download [JARVIS-Setup-x64.exe](./Mark-LV-main/dist/JARVIS-Setup-x64.exe).
+2. Run the installer and follow its prompts. It installs for the current
+   Windows user under Local AppData, so administrator access and a separate
+   Python installation are not required.
+3. Use the Start menu shortcut to launch JARVIS. You can also choose the
+   optional desktop shortcut during installation.
+4. On first launch, enter your Gemini API key. You can create one in
+   [Google AI Studio](https://aistudio.google.com/apikey).
+5. Select the microphone and speakers you want JARVIS to use, then check that
+   Windows allows microphone access for desktop apps.
+
+Keep your API key private. It is stored locally with the app's configuration.
+Conversation content is sent to Google's Gemini service when you use AI
+features. Long-term memory is stored locally on the PC. By default, the
+configuration is under `%LOCALAPPDATA%\Programs\JARVIS\config\` and memory is
+under `%LOCALAPPDATA%\Programs\JARVIS\memory\`.
+
+The installer is currently unsigned, so Windows may display a SmartScreen
+warning. Only run it if you trust where you downloaded it from.
+
+## First-use notes
+
+- Keep an internet connection available for Gemini and web-based tools.
+- Install Chrome or Edge if you want to use browser-control tools. Playwright
+  browser binaries are not included in the installer.
+- The phone dashboard is optional and is intended for use on the same local
+  network as the PC. Windows Firewall may ask you to allow network access.
+- Wake-word mode is optional and may need to download its model when enabled.
+
+## Uninstall
+
+Uninstall **JARVIS - MARK LV** from **Settings > Apps > Installed apps**.
+Back up anything important in the app's configuration or memory folders before
+uninstalling or moving to another PC.
+
+## Build the installer (developers)
+
+From the project directory, install the runtime dependencies and run the
+PowerShell build script:
+
+```powershell
+python -m pip install -r requirements.txt
+.\build.ps1
+```
+
+The build PC needs Python and Inno Setup 6. The finished installer is written
+to `dist\JARVIS-Setup-x64.exe`. People installing the finished setup do not
+need Python or Inno Setup.
