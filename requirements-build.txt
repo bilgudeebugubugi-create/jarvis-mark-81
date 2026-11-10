@@ -1,0 +1,2 @@
+# Build the Windows executable with PyInstaller (runtime dependencies live in requirements.txt).
+PyInstaller>=6.8,<7
